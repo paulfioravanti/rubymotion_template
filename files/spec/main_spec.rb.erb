@@ -1,0 +1,7 @@
+describe "Application '<%= name.split('_').map { |w| w.capitalize }.join(' ') %>'" do
+  before { @app = Application.application_instance }
+
+  it "has one window" do
+    @app.windows.size.should.equal(1)
+  end
+end

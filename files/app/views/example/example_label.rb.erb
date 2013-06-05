@@ -1,0 +1,14 @@
+# This is just a test UIView to remove or modify to be more Ruby-like
+class ExampleLabel < UILabel
+  include UIViewHelper
+
+  def initialize
+    self.initialize_with_frame(device_screen_bounds)
+    self.text = "Welcome to <%= name.split('_').map { |w| w.capitalize }.join(" ") %>!"
+    self.backgroundColor = UIColor.whiteColor
+    self.font = UIFont.boldSystemFontOfSize(30)
+    self.textColor = UIColor.blackColor
+    self.textAlignment = UITextAlignmentCenter
+    self.numberOfLines = 0
+  end
+end
