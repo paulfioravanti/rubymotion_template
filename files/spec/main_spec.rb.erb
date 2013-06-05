@@ -1,4 +1,6 @@
 describe "Application '<%= name.split('_').map { |w| w.capitalize }.join(' ') %>'" do
+  extend SpecHelper
+
   before { @app = Application.application_instance }
 
   it "has one window" do
