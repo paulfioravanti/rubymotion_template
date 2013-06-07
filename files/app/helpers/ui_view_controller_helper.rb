@@ -1,9 +1,5 @@
 module UIViewControllerHelper
-  def init
-    super
-    initialize
-    self
-  end
+  include NSObjectHelper
 
   def loadView
     respond_to?(:root_view) ? root_view : super
