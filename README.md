@@ -14,7 +14,12 @@ Create your project using this template:
 
   `$ motion create <myappname> --template=rubymotion_template`
 
-## Social
+### Quirks
+
+- In order to get desired behaviour with the specs by making sure they are compiled in a specific order, numbers were prepended to relevant files.  There is as yet no equivalent spec-related `Rakefile` entry for `app.files_dependencies 'app/bar.rb' => 'app/foo.rb'`
+- In helper files, setter methods for `NSObject`-derived classes are overrided instead of aliased like the getters
+
+### Social
 
 <a href="http://stackoverflow.com/users/567863/paul-fioravanti">
   <img src="http://stackoverflow.com/users/flair/567863.png" width="208" height="58" alt="profile for Paul Fioravanti at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Paul Fioravanti at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
