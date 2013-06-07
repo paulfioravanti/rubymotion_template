@@ -1,0 +1,18 @@
+# This is just a test controller spec to modify or remove
+describe "Example Controller" do
+  tests ExampleController
+
+  describe "root view" do
+    it "has a root view" do
+      controller.view.should.not.be.nil
+    end
+
+    it "is an ExampleLabel" do
+      controller.view.class.should.equal(ExampleLabel)
+    end
+
+    it "bids me welcome" do
+      controller.view.text.should.equal("Welcome to <%= name.split('_').map { |w| w.capitalize }.join(' ') %>!")
+    end
+  end
+end

@@ -6,4 +6,12 @@ describe "Application '<%= name.split('_').map { |w| w.capitalize }.join(' ') %>
   it "has one window" do
     @app.windows.size.should.equal(1)
   end
+
+  describe "root view controller" do
+    before { @root_controller = @app.key_window.root_view_controller }
+
+    it "is an example" do
+       @root_controller.class.should.equal(ExampleController)
+    end
+  end
 end
