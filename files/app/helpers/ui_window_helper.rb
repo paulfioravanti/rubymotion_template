@@ -1,5 +1,5 @@
 module UIWindowHelper
-  include NSObjectHelper, UIScreenHelper
+  include NSObjectHelper
 
   def self.included(base)
     base.send :alias_method, :make_key_and_visible, :makeKeyAndVisible
