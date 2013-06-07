@@ -8,12 +8,4 @@ module UIViewControllerHelper
   def viewDidLoad
     respond_to?(:sub_views) ? sub_views : super
   end
-
-  def view_controllers
-    self.viewControllers
-  end
-
-  def view_controllers=(controllers)
-    self.viewControllers = controllers
-  end
 end

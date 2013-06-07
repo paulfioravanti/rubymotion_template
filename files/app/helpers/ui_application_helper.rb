@@ -6,9 +6,7 @@ module UIApplicationHelper
     # needs to be patched directly on the returned UIApplication instance
     base.send :define_singleton_method, :application_instance do
       application = self.sharedApplication
-      application.class.send(:define_method, :key_window) do
-        self.keyWindow
-      end
+      application.class.send(:alias_method, :key_window, :keyWindow)
       application
     end
   end

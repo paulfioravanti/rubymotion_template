@@ -1,11 +1,5 @@
 module UIScreenHelper
-  def self.included(base)
-    base.extend(ClassMethods)
-  end
-
-  module ClassMethods
-    def main_screen
-      self.mainScreen
-    end
+  class << UIScreen
+    alias_method :main_screen, :mainScreen
   end
 end
