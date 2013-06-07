@@ -6,7 +6,6 @@ class ExampleLabel < UILabel
   # Create new snake_case methods that call these in a helper, or use another
   # Rubymotion gem like Teacup for view item styling
   def initialize
-    # self.initialize_with_frame(device_screen_bounds)
     self.frame = device_screen_bounds
     self.text = "Welcome to <%= name.split('_').map { |w| w.capitalize }.join(" ") %>!"
     self.backgroundColor = UIColor.whiteColor
