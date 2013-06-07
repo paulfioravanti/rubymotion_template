@@ -2,6 +2,6 @@ class ApplicationWindow < UIWindow
   include UIWindowHelper
 
   def initialize
-    self.frame = device_screen_bounds
+    self.frame = DeviceScreen.main_screen.bounds
   end
 end

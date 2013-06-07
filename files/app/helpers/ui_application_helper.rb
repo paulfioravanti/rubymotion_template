@@ -1,5 +1,4 @@
 module UIApplicationHelper
-
   def self.included(base)
     # Shared application created by sharedApplication class method
     # which calls UIApplicationMain function to return app instance,

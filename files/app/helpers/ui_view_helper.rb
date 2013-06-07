@@ -1,5 +1,5 @@
 module UIViewHelper
-  include NSObjectHelper, UIScreenHelper
+  include NSObjectHelper
 
   def self.included(base)
     base.send :alias_method, :add_subview, :addSubview

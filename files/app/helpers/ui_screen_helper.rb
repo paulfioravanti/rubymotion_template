@@ -1,5 +1,11 @@
 module UIScreenHelper
-  def device_screen_bounds
-    UIScreen.mainScreen.bounds
+  def self.included(base)
+    base.extend(ClassMethods)
+  end
+
+  module ClassMethods
+    def main_screen
+      self.mainScreen
+    end
   end
 end
