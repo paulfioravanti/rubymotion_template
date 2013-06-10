@@ -1,1 +1,70 @@
 # <%= name %>
+
+## Run in iOS Simulator
+
+### Get [RubyMotion](http://www.rubymotion.com/)
+
+### Environment Configuration
+
+- If cloning this app from source control, run `$ cp Rakefile.example Rakefile`
+- Run `$ bundle install`
+- Run `$ rake spec` to ensure tests are passing
+- Run `$ rake` to run app in iOS Simulator
+
+## Local deployment to iDevice
+
+### Get an [Apple Developer account](https://developer.apple.com/)
+
+### Generate an iOS certificate for Development
+
+- Open the Keychain Access app on your Mac, located at `Applications > Utilities > Keychain Access`
+- Get a certificate that authorizes you to distribute iApps.  From the `Keychain Access` dropdown menu, choose `Certificate Assistant > Request a certificate from a certificate authority`
+- Fill in the Certificate Information:
+    - Your Apple Developer account email address
+    - A "Common Name" aka a name for your private key (can be anything; is usually your full name)
+    - Select the "Saved to disk" radio button for "Request is:" to download certificate
+- Sign in to the [Apple Developer Member Center](http://developer.apple.com/membercenter/) with your Apple Developer account credentials
+- Click [Certificates, Identifiers & Profiles](https://developer.apple.com/account)
+- Under iOS Apps, click [Certificates](https://developer.apple.com/account/ios/certificate/certificateList.action)
+- Under Certificates, click [Development](https://developer.apple.com/account/ios/certificate/certificateList.action?type=development)
+- Click the `+` button to begin the Add iOS certificate wizard
+- Select the "iOS App Development" radio button, and continue through the wizard, uploading the certificate that Keychain Access generated
+- Once you have completed the wizard and downloaded the `.cer` file, double click it to add it to your Keychain
+
+### Create an App ID
+
+- From the [Certificates, Identifiers & Profiles](https://developer.apple.com/account) page, under "Identifiers", click [App IDs](https://developer.apple.com/account/ios/identifiers/bundle/bundleList.action)
+- Click the `+` button to begin the Register iOS App ID wizard
+- Under "App ID Description", enter a Name (eg development)
+- Under "App ID Suffix", select the "Wildcard App ID" radio button, enter a value for the "Bundle ID" (eg com.yourname.*), and complete the wizard
+
+Note: The wildcard ID means you do not need to create a new App ID and Profile for each new app you want to deploy to the iDevice, but you will need a unique ID to submit an app to the App store or try out advanced functionality like Push notifications
+
+### Register your iDevice with your Apple Developer account
+
+- From the [Certificates, Identifiers & Profiles](https://developer.apple.com/account) page, under "Devices", click [All](https://developer.apple.com/account/ios/device/deviceList.action)
+- Click the `+` button to begin the Add iOS Devices wizard
+- Enter the name of the device, its UDID, and complete the wizard
+
+Find out how to get the UDID from [this tutorial](http://whatsmyudid.com/), or download the [UDID app](https://itunes.apple.com/au/app/udid/id458358726?mt=8) to your phone.
+
+### Create a Provisioning Profile
+
+- From the [Certificates, Identifiers & Profiles](https://developer.apple.com/account) page, under "Provisioning Profiles, click [Development](https://developer.apple.com/account/ios/profile/profileList.action?type=limited)
+- Click the `+` button to begin the Add iOS Provisioning Profile wizard
+- Under "Development", select the "iOS App Development" radio button
+- Select your App ID from the dropdown menu
+- Select your certificate
+- Select the registered devices that will use the app
+- Give a name to the provisioning profile (eg development), and generate it
+- Download the generated `.mobileprovision` file and double-click to install it
+
+### Update RubyMotion Rakefile
+
+- Fill in Identifier, Certificate and Provisioning Profile details in `Rakefile`
+- Connect an iDevice to your Mac
+- Run `$ rake device` to deploy app to device
+
+## Remote deployment via TestFlight
+
+- TODO

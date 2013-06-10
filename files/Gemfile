@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'sugarcube', '~> 0.20'
+gem 'sugarcube', '~> 0.20', require: false
 gem 'motion-redgreen', '~> 0.1'
 
 # Other popular gems; uncomment as needed
