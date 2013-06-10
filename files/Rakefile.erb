@@ -7,7 +7,7 @@ require 'sugarcube-repl'
 
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
-  app.name = '<%= name.split('_').map { |w| w.capitalize }.join(" ") %>'
+  app.name = '<%= name %>'
   app.delegate_class = 'ApplicationDelegate'
   app.redgreen_style = :full
 end

@@ -1,6 +1,5 @@
 class ApplicationDelegate
   include AppDelegateHelper
-
   # Replace root_view_controller with your own
   # Rubymotion displays warnings if it is not set
   def initialize

@@ -17,7 +17,7 @@ Create your project using this template:
 ### Quirks
 
 - In order to get desired behaviour with the specs by making sure they are compiled in a specific order, numbers were prepended to relevant files.  There is as yet no equivalent spec-related `Rakefile` entry for `app.files_dependencies 'app/bar.rb' => 'app/foo.rb'`
-- In helper files, setter methods for `NSObject`-derived classes are overrided instead of aliased like the getters
+- For some reason I got compile errors if I generate an app called "MyApp";  not sure if there's something significant about this name
 
 ### Social
 

@@ -12,7 +12,7 @@ describe "Example Controller" do
     end
 
     it "bids me welcome" do
-      controller.view.text.should.equal("Welcome to <%= name.split('_').map { |w| w.capitalize }.join(' ') %>!")
+      controller.view.text.should.equal("Welcome to <%= name %>!")
     end
   end
 end
