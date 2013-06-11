@@ -65,6 +65,46 @@ Find out how to get the UDID from [this tutorial](http://whatsmyudid.com/), or d
 - Connect an iDevice to your Mac
 - Run `$ rake device` to deploy app to device
 
-## Remote deployment via TestFlight
+## Remote deployment via [TestFlight](https://testflightapp.com)
 
-- TODO
+### Generate an iOS certificate for Ad Hoc Distribution
+
+- Open the Keychain Access app on your Mac, located at `Applications > Utilities > Keychain Access`
+- Get a certificate that authorizes you to distribute iApps.  From the `Keychain Access` dropdown menu, choose `Certificate Assistant > Request a certificate from a certificate authority`
+- Fill in the Certificate Information:
+    - Your Apple Developer account email address
+    - A "Common Name" aka a name for your private key (can be anything; is usually your full name)
+    - Select the "Saved to disk" radio button for "Request is:" to download certificate
+- Sign in to the [Apple Developer Member Center](http://developer.apple.com/membercenter/) with your Apple Developer account credentials
+- Click [Certificates, Identifiers & Profiles](https://developer.apple.com/account)
+- Under iOS Apps, click [Certificates](https://developer.apple.com/account/ios/certificate/certificateList.action)
+- Under Certificates, click [Production](https://developer.apple.com/account/ios/certificate/certificateList.action?type=production)
+- Click the `+` button to begin the Add iOS certificate wizard
+- Select the "App Store and Ad Hoc" radio button, and continue through the wizard, uploading the certificate that Keychain Access generated
+- Once you have completed the wizard and downloaded the `.cer` file, double click it to add it to your Keychain
+
+### Create a fixed App ID
+
+- From the [Certificates, Identifiers & Profiles](https://developer.apple.com/account) page, under "Identifiers", click [App IDs](https://developer.apple.com/account/ios/identifiers/bundle/bundleList.action)
+- Click the `+` button to begin the Register iOS App ID wizard
+- Under "App ID Description", enter a Name (eg development)
+- Under "App ID Suffix", select the "Explicit App ID" radio button, enter a value for the "Bundle ID" (eg com.yourname.yourappname), and complete the wizard
+
+### Create an Ad Hoc Distribution Provisioning Profile
+
+- From the [Certificates, Identifiers & Profiles](https://developer.apple.com/account) page, under "Provisioning Profiles, click [Distribution](https://developer.apple.com/account/ios/profile/profileList.action?type=production)
+- Click the `+` button to begin the Add iOS Provisioning Profile wizard
+- Under "Distribution", select the "Ad Hoc" radio button
+- Select your App ID from the dropdown menu
+- Select your certificate
+- Select the registered devices that will use the app
+- Give a name to the provisioning profile (eg Your App Ad Hoc), and generate it
+- Download the generated `.mobileprovision` file and double-click to install it
+
+### Update RubyMotion Rakefile
+
+- Fill in Testflight details in `Rakefile`
+    - Testflight API token can be found on your [Account Settings page](https://testflightapp.com/account/#api)
+    - Team API token can be found on your [Team Info page](https://testflightapp.com/dashboard/team/edit/)
+    - App Token can be found in the individual App Token section of your app on TestFlight
+- Run `$ rake tf notes="My release notes"` to deploy app to TestFlight

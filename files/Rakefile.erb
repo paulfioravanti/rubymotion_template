@@ -11,10 +11,39 @@ Motion::Project::App.setup do |app|
   app.delegate_class = 'ApplicationDelegate'
   app.redgreen_style = :full
   # Identifier is the Bundle ID you used when you created an App ID
-  app.identifier = 'com.yourname.<%= name %>' # change this
-  # Codesign Certificate is the Common Name on your iOS certificate,
-  # which can be found in the Keychain Access OSX app
-  app.codesign_certificate = 'iPhone Developer: Your Name (XXXXXXXXXX)' # change
-  # Path to the Provisioning Profile you generated
-  app.provisioning_profile = "/path/to/<%= name %>.mobileprovision" # change
+  app.identifier = 'com.<%= ENV['USER'] || 'yourname' %>.<%= name %>' # change this
+
+  # Provisioning profiles
+  if ENV['adhoc']
+    # Codesign Certificate is the Common Name on your iOS certificate,
+    # which can be found in the Keychain Access OSX app
+    app.codesign_certificate = 'iPhone Distribution: <%= ENV['USER'].capitalize || 'Your Name' %> (XXXXXXXXXX)'
+    # Path to the Provisioning Profile you generated
+    app.provisioning_profile = "/path/to/<%= name %>_adhoc.mobileprovision" # change
+    app.entitlements['get-task-allow'] = false
+
+    # TestFlight config
+    app.testflight.sdk = "vendor/TestFlightSDK1.2.5"
+    # Found on your TestFlight Account Settings page
+    app.testflight.api_token = 'XXXXXX' # change
+    # Found on your TestFlight Team Info page
+    app.testflight.team_token = 'XXXXXX' # change
+    # Found on your TestFlight app's App Token & SDK page
+    app.testflight.app_token = 'XXXXXX' # change
+  else
+    app.codesign_certificate = 'iPhone Developer: <%= ENV['USER'].capitalize || 'Your Name' %> (XXXXXXXXXX)' # change
+    app.provisioning_profile = "/path/to/<%= name %>_dev.mobileprovision" # change
+  end
 end
+
+desc "Set the env to 'adhoc'"
+task :set_adhoc do
+  ENV['adhoc'] = '1'
+end
+
+desc "Run Testflight with the adhoc provisioning profile"
+# e.g. rake tf notes="My release notes"
+task :tf => [
+  :set_adhoc,
+  :testflight
+]
