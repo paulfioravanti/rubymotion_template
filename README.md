@@ -18,7 +18,7 @@ Create your project using this template:
 
 - Rails-style project setup
 - I18n-ready
-- TestFlight-ready
+- [TestFlight](https://testflightapp.com/)-ready
 - Lots of documentation in the generated `README` file to get an app up and running
 
 ### Quirks
