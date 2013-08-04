@@ -12,7 +12,8 @@ describe "Example Controller" do
     end
 
     it "bids me welcome" do
-      controller.view.text.should.equal("Welcome to <%= name %>!")
+      welcome_message = I18n.t('welcome', name: '<%= name %>')
+      controller.view.text.should.equal(welcome_message)
     end
   end
 end
