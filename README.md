@@ -1,6 +1,6 @@
 # Rubymotion Template
 
-This is my Ruby-zealot RubyMotion 2.0 basic template.  It aims to push as much Objective-C-like code as possible into siloed helper files and out of the way of Ruby code.
+This is my Ruby-zealot RubyMotion 2 basic template.  It aims to push as much Objective-C-like code as possible into silo-ed helper files and out of the way of Ruby code.
 
 ### Install Template
 
@@ -12,12 +12,18 @@ Run this command to install the template:
 
 Create your project using this template:
 
-  `$ motion create <myappname> --template=rubymotion_template`
+  `$ motion create myappname --template=rubymotion_template`
+
+### Features
+
+- Rails-style project setup
+- I18n-ready
+- TestFlight-ready
+- Lots of documentation in the generated `README` file to get an app up and running
 
 ### Quirks
 
 - In order to get desired behaviour with the specs by making sure they are compiled in a specific order, numbers were prepended to relevant files.  There is as yet no equivalent spec-related `Rakefile` entry for `app.files_dependencies 'app/bar.rb' => 'app/foo.rb'`
-- For some reason I got compile errors if I generate an app called "MyApp";  not sure if there's something significant about this name
 
 ### Social
 
