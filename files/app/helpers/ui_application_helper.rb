@@ -1,5 +1,6 @@
 module UIApplicationHelper
   def self.included(base)
+    # This is so we can use Application.application_instance in the specs.
     # We have no direct control over the application instance returned
     # by the UIApplication.sharedApplication class method
     # (it calls the UIApplicationMain function in UIKit to return the
