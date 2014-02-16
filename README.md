@@ -36,3 +36,6 @@ Create your project using this template:
 </a>
 
 [![endorse](http://api.coderwall.com/pfioravanti/endorsecount.png)](http://coderwall.com/pfioravanti)
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/paulfioravanti/rubymotion_template/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
