@@ -13,6 +13,10 @@ Run this command to install the template:
 Create your project using this template:
 
   `$ motion create myappname --template=rubymotion_template`
+  `$ cd myappname`
+  `$ bundle install`
+  `$ rake`
+  `$ rake spec`
 
 ### Features
 
